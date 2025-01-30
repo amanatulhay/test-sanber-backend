@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Post,
+  Put,
   Request,
   UseGuards,
 } from "@nestjs/common";
@@ -23,7 +24,6 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post("login")
   async login(@Request() req, @Body() account: LoginInputDto) {
-    // account = req.user;
     return this.authService.login(req.user);
   }
 
@@ -33,7 +33,7 @@ export class AuthController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post("change-password")
+  @Put("change-password")
   @ApiBearerAuth()
   async changePassword(
     @Request() req,
