@@ -9,6 +9,7 @@ import { FavoriteCharacterModule } from './services/favorite_character/favorite_
 import { FileModule } from './services/file/file.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { resolve } from 'path';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { resolve } from 'path';
     PersonModule, 
     HobbyModule, 
     FavoriteCharacterModule, 
-    FileModule
+    FileModule,
+    ConfigModule.forRoot()
   ],
   controllers: [AppController],
   providers: [AppService],
