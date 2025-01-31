@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
-import { AccountsModule } from './accounts/accounts.module';
-import { PersonModule } from './person/person.module';
-import { HobbyModule } from './hobby/hobby.module';
-import { FavoriteCharacterModule } from './favorite_character/favorite_character.module';
-import { FileModule } from './file/file.module';
+import { AuthModule } from './services/auth/auth.module';
+import { AccountsModule } from './services/accounts/accounts.module';
+import { PersonModule } from './services/person/person.module';
+import { HobbyModule } from './services/hobby/hobby.module';
+import { FavoriteCharacterModule } from './services/favorite_character/favorite_character.module';
+import { FileModule } from './services/file/file.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { resolve } from 'path';
 

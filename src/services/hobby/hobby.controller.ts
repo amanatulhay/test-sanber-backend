@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Param, Delete, Put, UseGuards } from '@nes
 import { HobbyService } from './hobby.service';
 import { CreateHobbyDto } from './dto/create-hobby.dto';
 import { UpdateHobbyDto } from './dto/update-hobby.dto';
-import { JwtAuthGuard } from 'src/auth/jwt/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/services/auth/jwt/jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { Hobby } from '@prisma/client';
 

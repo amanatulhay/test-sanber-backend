@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Param, Delete, UseGuards, Put } from '@nes
 import { FavoriteCharacterService } from './favorite_character.service';
 import { CreateFavoriteCharacterDto } from './dto/create-favorite_character.dto';
 import { UpdateFavoriteCharacterDto } from './dto/update-favorite_character.dto';
-import { JwtAuthGuard } from 'src/auth/jwt/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/services/auth/jwt/jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { Favorite_character } from '@prisma/client';
 
