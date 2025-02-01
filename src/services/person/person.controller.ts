@@ -4,7 +4,7 @@ import { CreatePersonDto } from './dto/create-person.dto';
 import { UpdatePersonDto } from './dto/update-person.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt/jwt-auth.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';
-import { Person } from '@prisma/client';
+import { Favorite_character, Hobby, Person } from '@prisma/client';
 
 @Controller('person')
 export class PersonController {
@@ -42,5 +42,15 @@ export class PersonController {
   @ApiBearerAuth()
   async remove(@Param('id') id: string): Promise<Person> {
     return await this.personService.remove(+id);
+  }
+
+  @Get('hobby/:person_id')
+  async findHobbyByPersonId(@Param('person_id') person_id: string): Promise<Hobby[]> {
+    return await this.personService.findHobbyByPersonId({ person_id: +person_id});
+  }
+
+  @Get('favorite-character/:person_id')
+  async findFavoriteCharacterByPersonId(@Param('person_id') person_id: string): Promise<Favorite_character[]> {
+    return await this.personService.findFavoriteCharacterByPersonId({ person_id: +person_id});
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Person, Prisma } from '@prisma/client';
+import { Favorite_character, Hobby, Person, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import { CreatePersonDto } from './dto/create-person.dto';
 import { UpdatePersonDto } from './dto/update-person.dto';
@@ -48,6 +48,26 @@ export class PersonService {
   async remove(id: number): Promise<Person> {
 		return await this.prisma.person.delete({
 			where: { id },
+		});
+	}
+
+  async findHobbyByPersonId(
+	where?: Prisma.HobbyWhereInput,
+	include?: Prisma.HobbyInclude
+	): Promise<Hobby[]> {
+	return await this.prisma.hobby.findMany({
+			where: { ...where },
+			include,
+		});
+	}
+	
+  async findFavoriteCharacterByPersonId(
+	where?: Prisma.Favorite_characterWhereInput,
+	include?: Prisma.Favorite_characterInclude
+	): Promise<Favorite_character[]> {
+	return await this.prisma.favorite_character.findMany({
+			where: { ...where },
+			include,
 		});
 	}
 }

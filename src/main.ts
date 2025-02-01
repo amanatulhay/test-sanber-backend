@@ -12,8 +12,8 @@ async function bootstrap() {
   app.enableCors();
   const config = new DocumentBuilder()
     .addBearerAuth()
-    .setTitle('Test Sanbercode API - Amanatulhay Pribadi')
-    .setDescription('Test Sanbercode API - Amanatulhay Pribadi')
+    .setTitle('Iconic Profiles API')
+    .setDescription('By Amanatulhay Pribadi')
     .setVersion('1.0')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
